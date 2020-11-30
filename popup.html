@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #121212;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      height: 560px;
+      width: 780px;
+      font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, helvetica, arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
+      color: #FFFFFF;
+    }
+
+    #header {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 30px;
+      letter-spacing: -.04em;
+      text-transform: none;
+      height: 50px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: -.03em;
+      text-transform: none;
+      height: 40px;
+    }
+
+    #disabled {
+      height: 500px;
+    }
+
+    #footer {
+      height: 1px;
+      background-color: #282828;
+    }
+
+    button {
+      padding: 10px;
+      height: 120px;
+      width: 120px;
+      outline: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 16.5px;
+      font-weight: 600;
+      border: 2px #121212;
+      margin: 5px;
+      background-color: #1DB954;
+    }
+
+    .disabled-text-area {
+      max-height: 95px;
+      width: 95px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .disabled-text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .green {
+      color: #1DB954;
+    }
+
+    .symbol {
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      left: 5px;
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .title-text {
+      display: inline-block;
+      top: -10px;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">Spotify Song Skip</div>
+  <div class="title"><span class="title-text">Skipped Keywords </span><span class="green symbol">+</span><span class="green symbol">&#9100;</span></div>
+  <div id="disabled">
+  </div>
+  <div id="footer"></div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
