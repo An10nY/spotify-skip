@@ -35,10 +35,10 @@ var createButton = function (content) {
   return button;
 }
 
-var randomColor = () => Math.floor(Math.random() * 256);
+var randomColor = (min = 0, max = 256) => min + Math.floor(Math.random() * (max - min));
 
 var setRandomBackground = function(elm) {
-  elm.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+  elm.style.backgroundColor = `rgb(${randomColor(0, 170)}, ${randomColor(85)}, ${randomColor(0, 170)})`;
 }
 
 var createNewButton = function () {
@@ -52,12 +52,15 @@ var createNewButton = function () {
 
 var removeBlockedContent = function (content) {
   chrome.storage.sync.get("spotify-disabled", function (data) {
-    let list = data && data["spotify-disabled"] || [];
-    let index = list.indexOf(content);
+    let index = -1;
+    if (data && data["spotify-disabled"]) {
+      index = data["spotify-disabled"].indexOf(content);
+    }
+
     if (index !== -1) {
-      list.splice(index, 1);
-      chrome.storage.sync.set({ "spotify-disabled": list }, function () {
-        console.log(`Updated spotify block list to ${list}`);
+      data["spotify-disabled"].splice(index, 1);
+      chrome.storage.sync.set({ "spotify-disabled": data["spotify-disabled"] }, function () {
+        console.log(`Updated spotify block list to ${data["spotify-disabled"]}`);
       });
     }
   });
