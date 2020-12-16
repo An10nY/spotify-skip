@@ -10,6 +10,12 @@
     ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*.spotify.com/*"],
+      "js": ["listen.js"]
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {

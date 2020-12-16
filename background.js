@@ -54,9 +54,8 @@ var skip = async function () {
   skipButton.click();
 }
 
-chrome.webNavigation.onCompleted.addListener(function ({tabId}) {
-  chrome.tabs.executeScript(tabId, {
-    "file": "listen.js"
-  });
-
-}, { url: [{ urlMatches: 'open.spotify.com' }] });
+// chrome.webNavigation.onCompleted.addListener(function ({tabId}) {
+//   chrome.tabs.executeScript(tabId, {
+//     "file": "listen.js"
+//   });
+// }, { url: [{ urlMatches: 'open.spotify.com' }] });

@@ -4,6 +4,8 @@
 
 'use strict';
 
+var listener = null;
+
 var listen = function () {
   return setInterval(() => {
     var nowPlaying = document.getElementsByClassName("now-playing")[0];
@@ -30,10 +32,26 @@ var stop = function () {
   }
 }
 
+var start = function() {
+  if (listener) {
+    stop();
+  }
+  listener = listen();
+}
+
 var skip = function () {
-  var skipButton = document.getElementsByClassName("spoticon-skip-forward-16")[0];
+  var controls = document.getElementsByClassName("player-controls__buttons")[0];
+  var skipButton = controls.querySelectorAll("[title='Next']")[0];
   skipButton.click();
 }
 
-listen();
-console.log(document.title);
+// browser.runtime.connect().onConnect.addListener(function () {
+//   start();
+// })
+
+// browser.runtime.connect().onDisconnect.addListener(function () {
+//   stop();
+// })
+
+start();
+alert("starting");
